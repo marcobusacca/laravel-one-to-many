@@ -20,6 +20,11 @@
                 <div class="card w-100">
                     <div class="card-body text-center">
                         <p class="card-text my-5">{{ $project->description }}</p>
+                        @if (empty($project->type->name))
+                            <h5 class="card-subtitle my-5">Tipologia non disponibile</h5>
+                        @else
+                            <h5 class="card-subtitle my-5">{{ $project->type->name }}</h5>
+                        @endif
                         <h6 class="card-subtitle my-5">{{ $project->date_of_creation }}</h6>
                         @if (empty($project->cover_image))
                             <span class="text-center">Immagine non disponibile</span>
