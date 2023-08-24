@@ -26,9 +26,18 @@ Route::get('/', function () {
 
 
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function () {
+    // ADMIN DASHBOARD
     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+    // PROJECTS RESOURCE (INDEX, SHOW, CREATE, STORE, EDIT, UPDATE, DESTROY)
     Route::resource('projects', ProjectController::class);
+
+    // PROJECTS EDIT: DELETE-COVER-IMAGE
     Route::get('/projects/{project}/edit/delete-cover-image', [ProjectController::class, 'deleteCoverImage'])->name('projects.edit.delete-cover-image');
+
+    // TYPES RESOURCE (INDEX, SHOW, CREATE, STORE, EDIT, UPDATE, DESTROY)
+    Route::resource('types', TypeController::class);
+
 });
 
 Route::middleware('auth')->group(function () {

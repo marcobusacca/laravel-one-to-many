@@ -19,6 +19,17 @@ class TypeController extends Controller
     {
         //
     }
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Type  $type
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Type $type)
+    {
+        //
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -37,17 +48,6 @@ class TypeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreTypeRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Type  $type
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Type $type)
     {
         //
     }

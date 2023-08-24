@@ -22,7 +22,8 @@
             </div>
         </div>
         <div class="col-12 text-center my-5">
-            <a href="{{ Route('admin.projects.index') }}" class="btn btn-primary">Progetti</a>
+            <a href="{{ Route('admin.projects.index') }}" class="btn btn-primary mx-3">Progetti</a>
+            <a href="{{ Route('admin.types.index') }}" class="btn btn-primary mx-3">Tipologie</a>
         </div>
     </div>
 </div>
