@@ -44,7 +44,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -55,7 +55,19 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        $form_data = $request->all();
+
+        $type = new Type();
+
+        $form_data['slug'] = $type->generateSlug($form_data['name']);
+
+        $type->fill($form_data);
+
+        $type->save();
+
+        $message = 'Creazione Tipologia Completata';
+
+        return redirect()->route('admin.types.show', compact('type', 'message'));
     }
 
     /**
