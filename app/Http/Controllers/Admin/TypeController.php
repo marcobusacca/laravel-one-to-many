@@ -109,6 +109,10 @@ class TypeController extends Controller
      */
     public function destroy(Type $type)
     {
-        //
+        $type->delete();
+
+        $message = 'Cancellazione Tipologia Completata';
+
+        return redirect()->route('admin.types.index', compact('message'));
     }
 }
