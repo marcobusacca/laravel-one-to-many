@@ -30,9 +30,11 @@ class TypeController extends Controller
      * @param  \App\Models\Type  $type
      * @return \Illuminate\Http\Response
      */
-    public function show(Type $type)
+    public function show(Request $request, Type $type)
     {
-        //
+        $message = $request->query->get('message');
+
+        return view('admin.types.show', compact('type', 'message'));
     }
 
     /**

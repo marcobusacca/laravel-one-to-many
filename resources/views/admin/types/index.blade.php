@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-6 d-flex justify-content-start align-items-end my-5">
-                <h1>Tipologie Progetti</h1>
+                <h1>Tipologie dei Progetti</h1>
             </div>
             <div class="col-6 d-flex justify-content-end align-items-end my-5">
                 <a href="{{ Route('admin.dashboard') }}" class="btn btn-primary">Dashboard</a>
@@ -51,7 +51,7 @@
                         @endforeach
                         <tr class="text-center">
                             <td colspan="4" class="py-4">
-                                <a href="{{ route('admin.types.create') }}" class="text-decoration-none">Crea un Nuovo Progetto</a>
+                                <a href="{{ route('admin.types.create') }}" class="text-decoration-none">Crea una Nuova Tipologia</a>
                             </td>
                         </tr>
                     </tbody>
