@@ -15,11 +15,15 @@ class TypeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $message = $request->query->get('message');
+
+        $types = Type::all();
+
+        return view('admin.types.index', compact('types', 'message'));
     }
-    
+
     /**
      * Display the specified resource.
      *
