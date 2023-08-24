@@ -24,6 +24,7 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
+            'type_id' => 'required|exists:types,id',
             'title' => 'required|max:50',
             'description' => 'required',
             'date_of_creation' => 'required',
@@ -34,6 +35,9 @@ class StoreProjectRequest extends FormRequest
     public function messages()
     {
         return [
+            'type_id.required' => 'Devi selezionare una Tipologia',
+            'type_id.exists' => 'Tipologia selezionata non valida',
+
             'title.required' => 'Il titolo è obbligatorio',
             'title.max' => 'Il titolo deve avere una lunghezza massima di :max caratteri',
 
