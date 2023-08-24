@@ -78,7 +78,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -90,7 +90,15 @@ class TypeController extends Controller
      */
     public function update(UpdateTypeRequest $request, Type $type)
     {
-        //
+        $form_data = $request->all();
+
+        $form_data['slug'] = $type->generateSlug($form_data['name']);
+
+        $type->update($form_data);
+
+        $message = 'Modifica Tipologia Completata';
+
+        return redirect()->route('admin.types.show', compact('type', 'message'));
     }
 
     /**
