@@ -32,7 +32,7 @@
                                     <span class="d-inline-block">{{ $project->title }}</span>
                                 @endforeach
                             @else
-                            <label>Nessun Progetto appartenente a questa Tipologia</label>
+                                <label>Nessun Progetto appartenente a questa Tipologia</label>
                             @endif
                         </div>
                     </div>
