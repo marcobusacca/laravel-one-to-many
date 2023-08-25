@@ -56,12 +56,16 @@ class ProjectController extends Controller
     {
         $form_data = $request->all();
 
-        if($request->hasFile('cover_image')){
-            
-            $img_path = Storage::put('projects_images', $request->cover_image);
-            
-            $form_data['cover_image'] = $img_path;
-        }
+        // GESTIONE UPLOAD DEI FILE (COVER_IMAGE)
+
+            if($request->hasFile('cover_image')){
+                
+                $img_path = Storage::put('projects_images', $request->cover_image);
+                
+                $form_data['cover_image'] = $img_path;
+            }
+
+        //
 
         $project = new Project();
 
@@ -81,6 +85,7 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         $types = Type::all();
+
         return view('admin.projects.edit', compact('project', 'types'));
     }
 
@@ -95,17 +100,21 @@ class ProjectController extends Controller
     {
         $form_data = $request->all();
 
-        if($request->hasFile('cover_image')){
+        // GESTIONE UPLOAD DEI FILE (COVER_IMAGE)
 
-            if($project->cover_image){
+            if($request->hasFile('cover_image')){
 
-                Storage::delete($project->cover_image);
+                if($project->cover_image){
+
+                    Storage::delete($project->cover_image);
+                }
+                
+                $img_path = Storage::put('projects_images', $request->cover_image);
+                
+                $form_data['cover_image'] = $img_path;
             }
-            
-            $img_path = Storage::put('projects_images', $request->cover_image);
-            
-            $form_data['cover_image'] = $img_path;
-        }
+
+        //
 
         $project->update($form_data);
 
@@ -120,10 +129,14 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        if($project->cover_image){
+        // GESTIONE CANCELLAZIONE DEI FILE (COVER_IMAGE)
 
-            Storage::delete($project->cover_image);
-        }
+            if($project->cover_image){
+
+                Storage::delete($project->cover_image);
+            }
+
+        //
 
         $project->delete();
 
