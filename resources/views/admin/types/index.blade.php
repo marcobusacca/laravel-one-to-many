@@ -39,7 +39,7 @@
                                     <a href="{{ route('admin.types.edit', $type) }}" class="btn btn-warning mx-1">
                                         <i class="fas fa-edit"></i>
                                     </a>
-                                    <form class="type-delete-button d-inline-block mx-1" data-type-name="{{ $type->name }}" action="{{ route('admin.types.destroy', $type) }}" method="POST" onsubmit="return confirm('Sei sicuro di voler cancellare questa tipologia?')">
+                                    <form class="type-delete-button d-inline-block mx-1" data-type-name="{{ $type->name }}" action="{{ route('admin.types.destroy', $type) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger">
