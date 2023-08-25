@@ -24,6 +24,17 @@
                             <label class="fw-bold">Slug:</label>
                             <span class="d-inline-block">{{ $type->slug }}</span>
                         </div>
+                        <!-- Type Projects  -->
+                        <div class="my-5 text-center">
+                            @if (count($type->projects) != 0)
+                                <label class="fw-bold">Progetti di questa Tipologia:</label>
+                                @foreach ($type->projects as $project)
+                                    <span class="d-inline-block">{{ $project->title }}</span>
+                                @endforeach
+                            @else
+                            <label>Nessun Progetto appartenente a questa Tipologia</label>
+                            @endif
+                        </div>
                     </div>
                 </div>
             </div>
