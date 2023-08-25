@@ -9,10 +9,10 @@
             <div class="col-6 d-flex justify-content-end align-items-end my-5">
                 <a href="{{ Route('admin.projects.index') }}" class="btn btn-primary">Lista Progetti</a>
             </div>
-            @if (isset($message))
+            @if (session('message'))
                 <div class="col-12 mt-5">
                     <div class="alert alert-success">
-                        <span>{{ $message }}</span>
+                        <span>{{ session('message') }}</span>
                     </div>
                 </div>
             @endif

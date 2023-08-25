@@ -19,11 +19,9 @@ class ProjectController extends Controller
      */
     public function index(Request $request)
     {
-        $message = $request->query->get('message');
-
         $projects = Project::all();
 
-        return view('admin.projects.index', compact('projects', 'message'));
+        return view('admin.projects.index', compact('projects'));
     }
 
     /**
@@ -34,9 +32,7 @@ class ProjectController extends Controller
      */
     public function show(Request $request, Project $project)
     {
-        $message = $request->query->get('message');
-
-        return view('admin.projects.show', compact('project', 'message'));
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -73,9 +69,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        $message = 'Creazione Progetto Completata';
-
-        return redirect()->route('admin.projects.show', compact('project', 'message'));
+        return redirect()->route('admin.projects.show', compact('project'))->with('message', 'Creazione Progetto Completata');
     }
 
     /**
@@ -115,9 +109,7 @@ class ProjectController extends Controller
 
         $project->update($form_data);
 
-        $message = 'Modifica Progetto Completata';
-
-        return redirect()->route('admin.projects.show', compact('project', 'message'));
+        return redirect()->route('admin.projects.show', compact('project'))->with('message', 'Modifica Progetto Completata');
     }
 
     /**
@@ -135,9 +127,7 @@ class ProjectController extends Controller
 
         $project->delete();
 
-        $message = 'Cancellazione Progetto Completata';
-
-        return redirect()->route('admin.projects.index', compact('message'));
+        return redirect()->route('admin.projects.index')->with('message', 'Cancellazione Progetto Completata');
     }
 
     public function deleteCoverImage(Project $project)
