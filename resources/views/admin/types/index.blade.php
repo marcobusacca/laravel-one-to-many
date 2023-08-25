@@ -59,5 +59,5 @@
             </div>
         </div>
     </div>
-    {{-- @include('admin.partials.modal_type_delete'); --}}
+    @include('admin.partials.modal_type_delete');
 @endsection
