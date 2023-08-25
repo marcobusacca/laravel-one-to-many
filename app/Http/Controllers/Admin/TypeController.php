@@ -61,7 +61,7 @@ class TypeController extends Controller
 
         $type->save();
 
-        return redirect()->route('admin.types.show', compact('type'))->with('message', 'Creazione Tipologia Completata');
+        return redirect()->route('admin.types.show', compact('type'))->with('message', "Tipologia : '$type->name' Creata Correttamente");
     }
 
     /**
@@ -90,7 +90,7 @@ class TypeController extends Controller
 
         $type->update($form_data);
 
-        return redirect()->route('admin.types.show', compact('type'))->with('message', 'Modifica Tipologia Completata');
+        return redirect()->route('admin.types.show', compact('type'))->with('message', "Tipologia : '$type->name' Modificata Correttamente");
     }
 
     /**
@@ -103,6 +103,6 @@ class TypeController extends Controller
     {
         $type->delete();
 
-        return redirect()->route('admin.types.index')->with('message', 'Cancellazione Tipologia Completata');;
+        return redirect()->route('admin.types.index')->with('message', "Tipologia : '$type->name' Cancellata Correttamente");
     }
 }

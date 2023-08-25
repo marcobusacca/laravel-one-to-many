@@ -73,7 +73,7 @@ class ProjectController extends Controller
 
         $project->save();
 
-        return redirect()->route('admin.projects.show', compact('project'))->with('message', 'Creazione Progetto Completata');
+        return redirect()->route('admin.projects.show', compact('project'))->with('message', "Progetto : '$project->title' Creato Correttamente");
     }
 
     /**
@@ -118,7 +118,7 @@ class ProjectController extends Controller
 
         $project->update($form_data);
 
-        return redirect()->route('admin.projects.show', compact('project'))->with('message', 'Modifica Progetto Completata');
+        return redirect()->route('admin.projects.show', compact('project'))->with('message', "Progetto : '$project->title' Modificato Correttamente");
     }
 
     /**
@@ -140,7 +140,7 @@ class ProjectController extends Controller
 
         $project->delete();
 
-        return redirect()->route('admin.projects.index')->with('message', 'Cancellazione Progetto Completata');
+        return redirect()->route('admin.projects.index')->with('message', "Progetto : '$project->title' Cancellato Correttamente");
     }
 
     public function deleteCoverImage(Project $project)
