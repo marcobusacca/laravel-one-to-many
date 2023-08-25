@@ -17,8 +17,6 @@ class TypeController extends Controller
      */
     public function index(Request $request)
     {
-        $message = $request->query->get('message');
-
         $types = Type::all();
 
         return view('admin.types.index', compact('types', 'message'));
@@ -32,8 +30,6 @@ class TypeController extends Controller
      */
     public function show(Request $request, Type $type)
     {
-        $message = $request->query->get('message');
-
         return view('admin.types.show', compact('type', 'message'));
     }
 
@@ -65,9 +61,7 @@ class TypeController extends Controller
 
         $type->save();
 
-        $message = 'Creazione Tipologia Completata';
-
-        return redirect()->route('admin.types.show', compact('type', 'message'));
+        return redirect()->route('admin.types.show', compact('type'))->with('message', 'Creazione Tipologia Completata');
     }
 
     /**
@@ -96,9 +90,7 @@ class TypeController extends Controller
 
         $type->update($form_data);
 
-        $message = 'Modifica Tipologia Completata';
-
-        return redirect()->route('admin.types.show', compact('type', 'message'));
+        return redirect()->route('admin.types.show', compact('type'))->with('message', 'Modifica Tipologia Completata');
     }
 
     /**
@@ -111,8 +103,6 @@ class TypeController extends Controller
     {
         $type->delete();
 
-        $message = 'Cancellazione Tipologia Completata';
-
-        return redirect()->route('admin.types.index', compact('message'));
+        return redirect()->route('admin.types.index')->with('message', 'Cancellazione Tipologia Completata');;
     }
 }
