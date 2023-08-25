@@ -19,7 +19,7 @@ class TypeController extends Controller
     {
         $types = Type::all();
 
-        return view('admin.types.index', compact('types', 'message'));
+        return view('admin.types.index', compact('types'));
     }
 
     /**
@@ -30,7 +30,7 @@ class TypeController extends Controller
      */
     public function show(Request $request, Type $type)
     {
-        return view('admin.types.show', compact('type', 'message'));
+        return view('admin.types.show', compact('type'));
     }
 
     /**
